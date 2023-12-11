@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Persons | Create {% endblock %}
+
+{% block main %}
+<div class="flex bg-gradient-to-tr from-gray-200 via-gray-100 to-gray-200 h-screen justify-center items-center">
+
+    <div class="w-80 sm:w-screen max-w-md bg-white rounded-lg shadow">
+
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <span class="text-xl font-bold leading-tight tracking-tight text-blue-700 md:text-2xl">
+                <i class="fa-solid fa-people-group"></i> Crie sua conta</span>
+
+            <form class="space-y-4" action="{% url 'accounts:create_client' %}" method="post">
+                {% csrf_token %}
+                {% for field in create_user_form %}
+                <!-- <label for="{{field.id_for_label}}">{{field.label}}</label> --> <!-- Use label se quiser -->
+                <!-- Qualquer coisa relacionada a field é sempre field + alguma coisa como ex: field.help_text que está lá em login_form -->
+                {{field}}
+                <span class="text-red-400 font-bold text-sm">{{ field.errors }}</span>
+                {% endfor %}
+
+                {% include 'parts/messages.html' %}
+
+                <div class="flex flex-wrap">
+                    <button type="submit"
+                        class="w-full mt-5 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        Criar usuário <i class="fa-solid fa-user-plus"></i>
+                    </button>
+
+                    <a href="{% url 'persons:initial' %}"
+                        class="text-lg text-center text-blue-600 hover:text-blue-700 mt-4 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium">
+                        <i class="fa-solid fa-circle-arrow-left"></i> Início
+                    </a>
+                </div>
+
+                <p class="text-sm text-center font-light text-gray-700">Já possui uma conta?
+                    <a href="{% url 'accounts:login' %}" class="font-medium text-blue-700 hover:underline">
+                        clique aqui <i class="fa-solid fa-lock-open"></i>
+                    </a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

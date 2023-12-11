@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} Persons | Recuperação de senha {% endblock %}
+
+{% block main %}
+<div class="flex bg-gradient-to-tr from-gray-200 via-gray-100 to-gray-200 h-screen justify-center items-center">
+
+    <div class="w-80 sm:w-screen max-w-md bg-white rounded-lg shadow">
+
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <span class="text-xl font-bold leading-tight tracking-tight text-blue-700 md:text-2xl">
+                <i class="fa-solid fa-people-group"></i> Recuperação de senha</span>
+
+            <form class="space-y-4" action="{% url 'accounts:change_pass' %}" method="post">
+                {% csrf_token %}
+                {% for field in recover_form %}
+                {{field}}
+                <span class="text-red-400 font-bold text-sm">{{ field.errors }}</span>
+                {% endfor %}
+
+                {% include 'parts/messages.html' %}
+
+                <div class="flex flex-wrap">
+                    <button type="submit"
+                        class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        Alterar Senha <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                    <a href="{% url 'accounts:login' %}"
+                        class="text-lg text-center text-blue-600 hover:text-blue-700 mt-4 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium">
+                        <i class="fa-solid fa-circle-arrow-left"></i> Login
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

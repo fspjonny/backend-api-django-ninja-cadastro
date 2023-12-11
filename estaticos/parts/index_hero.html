@@ -1,0 +1,109 @@
+<div class="bg-gradient-to-tr from-slate-400 via-slate-500 to-slate-600">
+
+    <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="flex items-center justify-between p-6 px-8">
+            <div class="flex-1">
+                <div class="flex flex-row justify-between items-center">
+                    <a href="{% url 'persons:initial' %}" class="-m-1.5 p-1.5">
+                        <i
+                            class="fa-solid fa-people-group text-4xl sm:text-6xl text-slate-300 hover:text-slate-700"></i>
+                    </a>
+                    {% if not request.user.is_authenticated %}
+                    <a href="{% url 'accounts:login' %}" class="-m-1.5 p-1.5">
+                        <i
+                            class="fa-solid fa-right-to-bracket text-4xl sm:text-3xl text-slate-300 hover:text-slate-700"></i>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="relative px-8">
+
+        <div class="mx-auto max-w-2xl pt-32 pb-48">
+
+            <div class="text-center">
+
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">API JSON Pessoas</h1>
+                <p class="mt-6 text-lg leading-8 sm:text-justify text-gray-400">API JSON Pessoas é fornecida
+                    gratuitamente.
+                    😎
+                    <br />Mas para ter acesso aos dados, é necessário se cadastrar para obter o token de acesso.
+                    <br />Você pode usar sua aplicação para obter os dados fictícios de pessoas fictícias geradas
+                    com o
+                    <a class="underline text-blue-400" href="https://faker.readthedocs.io/en/master/"
+                        target="_blank">Faker</a> utilizado neste meu projeto de Backend.
+                </p>
+                <div class="mt-10 flex items-center justify-center gap-x-6">
+                    {% if not request.user.is_authenticated %}
+
+                    <a href="{% url 'accounts:create' %}" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white 
+                    shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 
+                    focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Cadastre-se</a>
+
+                    {% else %}
+
+                    <a href="{% url 'accounts:cliente' %}" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white 
+                    shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 
+                    focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Painel do usuário</a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <div class="flex flex-row items-center mt-10 gap-2">
+                <p class="font-semibold text-xl text-white">Documentação:</p>
+                <a href="/api/v1/docs" target="_blank">
+                    <i
+                        class="fa-solid fa-book bg-slate-300 p-1 rounded shadow-lg text-3xl text-blue-800 hover:text-blue-600"></i>
+                </a>
+            </div>
+            <div class="flex flex-col text-left mt-10">
+                <p class="mb-3 font-bold font-mono">Método HTTP</p>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <span class="w-fit rounded-lg py-1 px-2 bg-blue-800 text-white">GET</span>
+                    <span class="w-fit rounded-lg py-1 px-2 bg-slate-300 text-black text-base 
+                    font-weight-light font-mono">
+                        <span>
+                            http://{{ request.META.HTTP_HOST}}/api/v1/persons/
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <div class="flex flex-col text-left mt-5">
+                <p class="mb-3 font-bold font-mono">Exemplo de resposta</p>
+                <div class="flex flex-col sm:flex-row gap-2 text-base shadow-lg">
+                    <div class="overflow-x-auto rounded-lg p-2 bg-slate-300 text-black text-base 
+                    font-weight-light font-mono whitespace-nowrap">
+                        {
+                        <p class="indent-3">"items": [</p>
+                        <p class="indent-8">{</p>
+                        <p class="indent-12">"id": 1,</p>
+                        <p class="indent-12">"nome": "Alícia Silveira Gustavo Cunha",</p>
+                        <p class="indent-12">"sexo": "Feminino",</p>
+                        <p class="indent-12">"nascimento": "1997-03-19",</p>
+                        <p class="indent-12">"pai": "Luiz Gustavo Cunha",</p>
+                        <p class="indent-12">"mae": "Lavínia Silveira",</p>
+                        <p class="indent-12">"rg": "821205068",</p>
+                        <p class="indent-12">"cpf": "43890394581",</p>
+                        <p class="indent-12">"email": "alicia.cunha@yahoo.com.br",</p>
+                        <p class="indent-12">"telefone": "966727596",</p>
+                        <p class="indent-12">"endereco": "Avenida General Cristovao Barcelos, 332 - Niterói - RJ",</p>
+                        <p class="indent-12">"cargo": "Secretária Bilingue",</p>
+                        <p class="indent-12">"salario": "5850.17",</p>
+                        <p class="indent-12">"admissao": "2021-06-09"</p>
+                        <p class="indent-8">},</p>
+                        <p class="indent-4">],</p>
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %} Persons | Painel do Usuário {% endblock %}
+
+{% block main %}
+<div class="flex flex-col bg-gradient-to-b from-gray-100 to-blue-100 h-screen">
+
+    <div class="flex flex-col sm:flex-row py-4 px-2 bg-white justify-between border border-b-2 border-gray-300">
+        <div class="flex flex-row justify-between items-center gap-2">
+            <i class="fa-solid fa-people-group text-blue-600 text-3xl sm:text-2xl"></i>
+            <span class="font-mono">
+                Olá, {{ request.user.first_name }}
+            </span>
+        </div>
+
+        <a href="{% url 'persons:initial' %}" class="text-lg text-center text-blue-600 hover:text-blue-700">
+            <i class="fa-solid fa-house-user text-4xl sm:text-3xl"></i>
+        </a>
+        <a href="{% url 'accounts:logout' %}" class="flex items-center w-16 sm:w-auto py-1 px-2 text-white text-center 
+        bg-blue-800 hover:bg-blue-700 rounded-lg text-md sm:text-sm mt-8 sm:m-0">
+            Logout
+            <i class="hidden sm:block fa-solid fa-door-open text-lg ml-1"></i>
+        </a>
+    </div>
+
+    <div class="flex border border-2 border-gray-50 m-4 rounded-xl shadow-md 
+        flex-col bg-gradient-to-b from-blue-200 to-blue-400">
+
+        <div class="flex flex-wrap mt-4 gap-8 p-10 justify-between">
+
+            <div class="flex flex-col w-full bg-white text-center 
+            border border-2 border-slate-400 rounded shadow-md">
+                {% if user_token %}
+
+                <span class="flex flex-wrap justify-center gap-1 sm:gap-3 py-1 font-semibold">
+                    Seu token de acesso atual
+                    <span class="bg-blue-700 px-2 text-white rounded-full">{{ user_token.date }}</span>
+                </span>
+
+                <span class="bg-slate-400 font-mono break-words">
+                    <span
+                        class="flex sm:w-20 sm:rounded-br-lg bg-blue-700 text-white font-semibold justify-center px-2">REFRESH</span>
+                    {{ user_token.refresh_token }}
+
+                    <hr class="border border-slate-200 mt-2">
+
+                    <span
+                        class="flex sm:w-20 sm:rounded-br-lg bg-green-600 text-white font-semibold justify-center px-2">ACCESS</span>
+                    {{ user_token.access_token }}
+                </span>
+
+                {% else %}
+
+                <span class="py-3 font-semibold bg-orange-500">Você ainda não possui tokens</span>
+                <div
+                    class="flex flex-col py-2 gap-3 items-center w-full bg-gray-100 border border-2 border-gray-300 text-center rounded shadow-md">
+                    <span class="py-1 font-semibold">Criar token de acesso</span>
+                    <a href="{% url 'accounts:make_tokens' %}" class="items-center w-32 py-1 px-2 text-white text-center bg-blue-800 
+                hover:bg-blue-700 rounded-lg text-md">
+                        Gerar token
+                        <i class="fa-brands fa-keycdn text-lg ml-1"></i>
+                    </a>
+                </div>
+
+                {% endif %}
+            </div>
+
+            {% include 'parts/messages.html' %}
+
+            {% if expirado %}
+
+            <div
+                class="flex flex-col py-2 gap-3 items-center w-full bg-gray-100 border border-2 border-gray-300 text-center rounded shadow-md">
+                <span class="py-1 font-semibold">Gerar novo token de acesso</span>
+                <a href="{% url 'accounts:make_tokens' %}" class="items-center w-32 py-1 px-2 text-white text-center bg-blue-800 
+                hover:bg-blue-700 rounded-lg text-md">
+                    Gerar token
+                    <i class="fa-brands fa-keycdn text-lg ml-1"></i>
+                </a>
+            </div>
+
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

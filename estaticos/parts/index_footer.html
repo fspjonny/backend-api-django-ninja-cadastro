@@ -1,0 +1,36 @@
+<div class="bg-slate-800 text-neutral-200">
+
+    <div class="flex flex-row justify-center border-b-4 border-slate-400 p-4">
+
+        <h6 class="flex text-2xl text-neutral-500 font-semibold uppercase">
+            Obrigado
+        </h6>
+    </div>
+
+    <div class="flex flex-col mx-6 py-10 justify-center">
+        <h6 class="mb-2 flex justify-center font-semibold uppercase md:justify-start">
+            Contato
+        </h6>
+
+        <p class="mb-4 flex items-center justify-center md:justify-start">
+            <i class="fa-solid fa-envelope mr-2"></i>
+            fabio.silvapedro@gmail.com
+        </p>
+    </div>
+</div>
+
+<!-- ano atualiza sozinho no Copyright -->
+<div class="flex flex-row bg-slate-400 h-24 text-xs text-neutral-700 items-center justify-center">
+    <div>
+        © <span id="anoAtual"></span> Copyright: <span class="font-semibold text-xs text-neutral-800">
+            Fábio S. Pedro
+        </span>
+    </div>
+</div>
+
+</div>
+
+<script>
+    const anoAtual = new Date().getFullYear()
+    document.getElementById("anoAtual").textContent = anoAtual
+</script>

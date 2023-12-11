@@ -1,0 +1,9 @@
+{% if messages %}
+<div class="w-full text-center">
+    {% for message in messages %}
+    <div class="{{ message.tags }} font-bold p-2 rounded-lg">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
