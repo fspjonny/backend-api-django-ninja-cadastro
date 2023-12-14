@@ -15,12 +15,13 @@ _*Para esta versão do aplicativo, tive que modificar o banco de dados(Originalm
 
 ## Este projeto foi feito com:
 
+- [Python 3.11.4](https://docs.pytest.org/en/7.4.x/)
+- [Pytest 7.4.2](https://docs.pytest.org/en/7.4.x/)
+- [Pytest Django 4.5.2](https://pytest-django.readthedocs.io/en/latest/)
 - [Django Ninja 0.22.2](https://django-ninja.dev/)
 - [Django Jazzmin 2.6.0](https://django-jazzmin.readthedocs.io/)
 - [Django Cors Headers 4.2.0](https://pypi.org/project/django-cors-headers/)
 - [Faker 19.3.0](https://faker.readthedocs.io/en/master/)
-- [Pytest 7.4.2](https://docs.pytest.org/en/7.4.x/)
-- [Pytest Django 4.5.2](https://pytest-django.readthedocs.io/en/latest/)
 - [Tailwind CSS 3.3.6 CDN](https://cdn.tailwindcss.com)
 
 ## Como rodar o projeto?
