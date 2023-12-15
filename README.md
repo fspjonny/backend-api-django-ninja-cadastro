@@ -6,7 +6,7 @@ _*Para esta versão do aplicativo, tive que modificar o banco de dados(Originalm
 
 ### Para ver este APP funcionando na internet acesse:
 
-### http://url.pythonanywhere.com/
+### https://devfabiopedro.pythonanywhere.com/
 
 <br/>
 <div align="center">
@@ -18,6 +18,7 @@ _*Para esta versão do aplicativo, tive que modificar o banco de dados(Originalm
 - [Python 3.11.4](https://docs.pytest.org/en/7.4.x/)
 - [Pytest 7.4.2](https://docs.pytest.org/en/7.4.x/)
 - [Pytest Django 4.5.2](https://pytest-django.readthedocs.io/en/latest/)
+- [Django 4.2.4](https://docs.djangoproject.com/en/4.2/releases/4.2.4/)
 - [Django Ninja 0.22.2](https://django-ninja.dev/)
 - [Django Jazzmin 2.6.0](https://django-jazzmin.readthedocs.io/)
 - [Django Cors Headers 4.2.0](https://pypi.org/project/django-cors-headers/)
