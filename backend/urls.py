@@ -7,8 +7,8 @@ from persons.api import api
 urlpatterns = [
     path('manutencao/', admin.site.urls),
     path('', include('persons.urls'), name='inicio'),
-    path('account/', include('accounts.urls'), name='login'),
     path('account/api/v1/', api_auth.urls),
+    path('account/', include('accounts.urls'), name='login'),
     path('api/v1/', api.urls),
 ]
 
