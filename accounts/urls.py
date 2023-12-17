@@ -16,6 +16,6 @@ urlpatterns = [
     path('recover/pass/', recover_view, name='recovery'),
     path('change/pass/', proccess_recovery, name='change_pass'),
     path('logout/', logout_user, name='logout'),
-    path('cliente/', painel_cliente, name='cliente'),
+    path('client/', painel_cliente, name='client'),
     path('cliente/pair', make_tokens_for_user, name='make_tokens'),
 ]
