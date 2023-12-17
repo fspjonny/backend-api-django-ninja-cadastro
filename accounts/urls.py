@@ -10,12 +10,12 @@ app_name='accounts'
 
 urlpatterns = [
     path('', login_form, name='login'),
-    path('login/', verify_user, name='verify_login'),
-    path('create/', create_form, name='create'),
     path('create/client/', receive_form, name='create_client'),
     path('recover/pass/', recover_view, name='recovery'),
     path('change/pass/', proccess_recovery, name='change_pass'),
-    path('logout/', logout_user, name='logout'),
-    path('client/', painel_cliente, name='client'),
     path('cliente/pair', make_tokens_for_user, name='make_tokens'),
+    path('client/', painel_cliente, name='client'),
+    path('create/', create_form, name='create'),
+    path('login/', verify_user, name='verify_login'),
+    path('logout/', logout_user, name='logout'),
 ]
