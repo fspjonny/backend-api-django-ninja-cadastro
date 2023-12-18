@@ -10,7 +10,7 @@ _*Para esta versão do aplicativo, tive que modificar o banco de dados(Originalm
 
 <br/>
 <div align="center">
-<img height="600" src="https://i.imgur.com/I6GPwFp.png" alt="Tela Inicial">
+<img height="600" src="https://i.imgur.com/2Rp1U6u.png" alt="Tela Inicial">
 </div>
 
 ## Este projeto foi feito com:
