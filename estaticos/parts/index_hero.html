@@ -64,11 +64,12 @@
             <div class="flex flex-col text-left mt-10">
                 <p class="mb-3 font-bold font-mono">Método HTTP</p>
                 <div class="flex flex-col sm:flex-row gap-2">
-                    <span class="w-fit rounded-lg py-1 px-2 bg-blue-800 text-white">GET</span>
+                    <span class="w-fit rounded-lg py-1 px-2 bg-blue-800 text-white align-middle">GET</span>
                     <span class="w-fit rounded-lg py-1 px-2 bg-slate-300 text-black text-base 
                     font-weight-light font-mono">
-                        <span>
-                            http://{{ request.META.HTTP_HOST}}/api/v1/persons/
+                        <span class="break-all">
+                            http://{{
+                            request.META.HTTP_HOST}}/api/v1/persons/
                         </span>
                     </span>
                 </div>
