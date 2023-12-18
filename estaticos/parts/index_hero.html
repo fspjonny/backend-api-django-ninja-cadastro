@@ -1,3 +1,57 @@
+<!-- Estilo e codigo JS no escopo local desta página, isso só servirá aqui mesmo -->
+<style>
+    #message_api {
+        display: none;
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        width: 50%;
+        text-align: center;
+        transform: translateX(-50%);
+        background-color: #4bbb4f;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        box-shadow: 1px 1px 3px #000;
+    }
+</style>
+
+<script>
+    function copyToClipboard() {
+        // Seleciona o elemento com o texto que você deseja copiar
+        var textToCopy = document.getElementById('link_api');
+
+        // Cria um elemento de área de texto temporário
+        var tempTextArea = document.createElement('textarea');
+        tempTextArea.value = textToCopy.textContent;
+
+        // Adiciona o elemento de área de texto ao corpo da página
+        document.body.appendChild(tempTextArea);
+
+        // Seleciona e copia o texto na área de texto temporária
+        tempTextArea.select();
+        document.execCommand('copy');
+
+        // Remove o elemento de área de texto temporário
+        document.body.removeChild(tempTextArea);
+
+        // Exibe a mensagem temporária
+        var copyMessage = document.getElementById('message_api');
+        copyMessage.style.display = 'block';
+        copyMessage.style.opacity = 1;
+
+        // Oculta a mensagem após alguns segundos (tempo ajustável)
+        setTimeout(function () {
+            copyMessage.style.opacity = 0;
+            setTimeout(function () {
+                copyMessage.style.display = 'none';
+            }, 500); // Tempo de transição definido no estilo
+        }, 2000); // 2000 milissegundos = 2 segundos
+    }
+</script>
+
 <div class="bg-gradient-to-tr from-slate-400 via-slate-500 to-slate-600">
 
     <header class="absolute inset-x-0 top-0 z-50">
@@ -55,7 +109,7 @@
             </div>
 
             <div class="flex flex-row items-center mt-10 gap-2">
-                <p class="font-semibold text-xl text-white">Documentação:</p>
+                <p class="font-semibold text-xl text-white">Clique para ler a documentação</p>
                 <a href="/api/v1/docs" target="_blank">
                     <i
                         class="fa-solid fa-book bg-slate-300 p-1 rounded shadow-lg text-3xl text-blue-800 hover:text-blue-600"></i>
@@ -67,10 +121,15 @@
                     <span class="w-fit rounded-lg py-1 px-2 bg-blue-800 text-white align-middle">GET</span>
                     <span class="w-fit rounded-lg py-1 px-2 bg-slate-300 text-black text-base 
                     font-weight-light font-mono">
-                        <span class="break-all">
+                        <span class="break-all" id="link_api">
                             http://{{request.META.HTTP_HOST}}/api/v1/persons/
                         </span>
                     </span>
+                    <a class="flex justify-center" onclick="copyToClipboard()">
+                        <i class="fa-solid fa-copy bg-slate-300 p-1 rounded shadow-lg 
+                        text-xl text-blue-800 hover:text-blue-600 cursor-pointer"></i>
+                    </a>
+                    <span id="message_api">Link copiado !</span>
                 </div>
             </div>
             <div class="flex flex-col text-left mt-5">
