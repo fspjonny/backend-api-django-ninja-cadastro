@@ -1,57 +1,3 @@
-<!-- Estilo e codigo JS no escopo local desta página, isso só servirá aqui mesmo -->
-<style>
-    #message_api {
-        display: none;
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        width: 50%;
-        text-align: center;
-        transform: translateX(-50%);
-        background-color: #4bbb4f;
-        color: white;
-        padding: 15px;
-        border-radius: 10px;
-        opacity: 0;
-        transition: opacity 0.5s ease;
-        box-shadow: 1px 1px 3px #000;
-    }
-</style>
-
-<script>
-    function copyToClipboard() {
-        // Seleciona o elemento com o texto que você deseja copiar
-        var textToCopy = document.getElementById('link_api');
-
-        // Cria um elemento de área de texto temporário
-        var tempTextArea = document.createElement('textarea');
-        tempTextArea.value = textToCopy.textContent;
-
-        // Adiciona o elemento de área de texto ao corpo da página
-        document.body.appendChild(tempTextArea);
-
-        // Seleciona e copia o texto na área de texto temporária
-        tempTextArea.select();
-        document.execCommand('copy');
-
-        // Remove o elemento de área de texto temporário
-        document.body.removeChild(tempTextArea);
-
-        // Exibe a mensagem temporária
-        var copyMessage = document.getElementById('message_api');
-        copyMessage.style.display = 'block';
-        copyMessage.style.opacity = 1;
-
-        // Oculta a mensagem após alguns segundos (tempo ajustável)
-        setTimeout(function () {
-            copyMessage.style.opacity = 0;
-            setTimeout(function () {
-                copyMessage.style.display = 'none';
-            }, 500); // Tempo de transição definido no estilo
-        }, 2000); // 2000 milissegundos = 2 segundos
-    }
-</script>
-
 <div class="bg-gradient-to-tr from-slate-400 via-slate-500 to-slate-600">
 
     <header class="absolute inset-x-0 top-0 z-50">
@@ -75,21 +21,47 @@
 
     <div class="relative px-8">
 
-        <div class="mx-auto max-w-2xl pt-32 pb-48">
+        <div class="mx-auto max-w-2xl pt-20 pb-48">
 
-            <div class="text-center">
+            <div>
 
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">API JSON Pessoas</h1>
-                <p class="mt-6 text-lg leading-8 sm:text-justify text-gray-400">API JSON Pessoas é fornecida
-                    gratuitamente.
-                    😎
-                    <br />Mas para ter acesso aos dados, é necessário se cadastrar para obter o token de acesso.
-                    <br />Você pode usar sua aplicação para obter os dados fictícios de pessoas fictícias geradas
-                    com o
-                    <a class="underline text-blue-400" href="https://faker.readthedocs.io/en/master/"
-                        target="_blank">Faker</a> utilizado neste meu projeto de Backend.
+                <h1 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">API JSON Pessoas
+                </h1>
+                <p class="mt-6 text-lg leading-8 sm:text-justify text-gray-300">Esta API é gratuita. 😎
+                    <br />Ela é parte de um projeto pessoal que mostra como integrar um backend em <span
+                        class="text-gray-400">
+                        Django-Ninja</span> com uma
+                    aplicação frontend feita em <span class="text-gray-400">Vue3.</span>
                 </p>
-                <div class="mt-10 flex items-center justify-center gap-x-6">
+
+                <p class="mt-2 text-lg leading-8 sm:text-justify text-gray-300">
+                    Você poderá ver este projeto funcionando completo aqui:
+                    <a class="rounded-lg py-1 px-2 bg-slate-300 hover:bg-slate-400 text-black text-base 
+                    font-weight-light font-mono" href="" target="_blank">App frontend Vue3</a>
+                </p>
+
+                <details class="mt-4 text-lg align-left text-gray-300">
+                    <summary class="cursor-pointer hover:text-gray-400">Clique e veja como fazer sua própria aplicação
+                        acessar.
+                    </summary>
+                    <span class="text-gray-700">
+                        Para você ter acesso aos dados desta API, será necessário se cadastrar para obter um token de
+                        acesso que é <span class="text-gray-300">válido por 24hs.</span><br />
+                        Você poderá usar aplicações de teste de API como por exemplo o
+                        <span class="text-gray-300"><u><a href="https://www.postman.com/" target="_blank">
+                                    Postman</a></u></span>.
+                        <br />Você também poderá usar a sua própria aplicação de Frontend para obter os dados fictícios
+                        de
+                        pessoas
+                        fictícias geradas com o
+                        <a class="underline text-gray-300" href="https://faker.readthedocs.io/en/master/"
+                            target="_blank">Faker</a> utilizado neste meu projeto de Backend.
+                    </span>
+                </details>
+
+                <hr class="my-5 border-gray-400">
+
+                <div class="mt-5 flex items-center justify-center gap-x-6">
                     {% if not request.user.is_authenticated %}
 
                     <a href="{% url 'accounts:create' %}" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white 
@@ -103,7 +75,6 @@
                     focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Painel do usuário</a>
 
                     {% endif %}
-
                 </div>
 
             </div>
@@ -122,10 +93,10 @@
                     <span class="w-fit rounded-lg py-1 px-2 bg-slate-300 text-black text-base 
                     font-weight-light font-mono">
                         <span class="break-all" id="link_api">
-                            http://{{request.META.HTTP_HOST}}/api/v1/persons/
+                            https://{{request.META.HTTP_HOST}}/api/v1/persons/
                         </span>
                     </span>
-                    <a class="flex justify-center" onclick="copyToClipboard()">
+                    <a class="flex justify-center" onclick="copyToClipboard('link_api')">
                         <i class="fa-solid fa-copy bg-slate-300 p-1 rounded shadow-lg 
                         text-xl text-blue-800 hover:text-blue-600 cursor-pointer"></i>
                     </a>

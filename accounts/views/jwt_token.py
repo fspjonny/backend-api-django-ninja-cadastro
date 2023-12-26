@@ -22,7 +22,7 @@ def make_tokens_for_user(request):
         client.save()
         
         messages.success(request, 'Chave atualizada com sucesso!')
-        return redirect('accounts:cliente')
+        return redirect('accounts:client')
     
     # Caso contrário se for o primeiro acesso, vai criar um par de chaves de acesso a API
     except ClientAccountToken.DoesNotExist:
@@ -35,7 +35,7 @@ def make_tokens_for_user(request):
         newclient.save()
 
         messages.success(request, 'Token criado com sucesso!')
-        return redirect('accounts:cliente')
+        return redirect('accounts:client')
 
     
     

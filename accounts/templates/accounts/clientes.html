@@ -39,14 +39,21 @@
 
                 <span class="bg-slate-400 font-mono break-words">
                     <span
-                        class="flex sm:w-20 sm:rounded-br-lg bg-blue-700 text-white font-semibold justify-center px-2">REFRESH</span>
-                    {{ user_token.refresh_token }}
+                        class="flex sm:w-20 sm:rounded-br-lg bg-green-600 text-white font-semibold justify-center px-2 mb-2">ACCESS</span>
+                    <span id="key_token">{{ user_token.access_token }}</span>
 
                     <hr class="border border-slate-200 mt-2">
 
-                    <span
-                        class="flex sm:w-20 sm:rounded-br-lg bg-green-600 text-white font-semibold justify-center px-2">ACCESS</span>
-                    {{ user_token.access_token }}
+                    <a class="flex justify-center my-4" onclick="copyToClipboard('key_token')">
+                        <div class="align-self-auto">
+                            <i class="fa-solid fa-copy bg-slate-300 p-1 rounded shadow-lg 
+                            text-xl text-blue-800 hover:text-blue-600 cursor-pointer"></i>
+                            <p>Copiar</p>
+                        </div>
+                    </a>
+
+                    <span id="message_api">Token copiado !</span>
+
                 </span>
 
                 {% else %}

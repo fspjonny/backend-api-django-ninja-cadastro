@@ -35,11 +35,11 @@ class AccountsUrlsTest(TestCase):
         self.assertEqual(url.url_name, 'logout')
 
     def test_url_if_goto_client_painel(self):
-        url = resolve(reverse('accounts:cliente',))
-        self.assertEqual(url.route, 'account/cliente/')
-        self.assertEqual(url.url_name, 'cliente')
+        url = resolve(reverse('accounts:client',))
+        self.assertEqual(url.route, 'account/client/')
+        self.assertEqual(url.url_name, 'client')
 
     def test_url_if_goto_client_make_tokens(self):
         url = resolve(reverse('accounts:make_tokens',))
-        self.assertEqual(url.route, 'account/cliente/pair')
+        self.assertEqual(url.route, 'account/client/pair')
         self.assertEqual(url.url_name, 'make_tokens')
