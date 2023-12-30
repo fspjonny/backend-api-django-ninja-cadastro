@@ -35,29 +35,34 @@
                 </p>
 
                 <p class="mt-2 text-lg leading-8 sm:text-justify text-gray-300">
-                    Você poderá ver este projeto funcionando completo aqui:
+                    Você poderá ver este projeto funcionando completo aqui<br />
                     <a class="rounded-lg py-1 px-2 bg-slate-300 hover:bg-slate-400 text-black text-base 
-                    font-weight-light font-mono" href="" target="_blank">App frontend Vue3</a>
+                    font-weight-light font-mono drop-shadow-md" href="" target="_blank">App frontend Vue3</a>
                 </p>
 
-                <details class="mt-4 text-lg align-left text-gray-300">
-                    <summary class="cursor-pointer hover:text-gray-400">Clique e veja como fazer sua própria aplicação
-                        acessar.
-                    </summary>
-                    <span class="text-gray-700">
-                        Para você ter acesso aos dados desta API, será necessário se cadastrar para obter um token de
-                        acesso que é <span class="text-gray-300">válido por 24hs.</span><br />
-                        Você poderá usar aplicações de teste de API como por exemplo o
-                        <span class="text-gray-300"><u><a href="https://www.postman.com/" target="_blank">
-                                    Postman</a></u></span>.
-                        <br />Você também poderá usar a sua própria aplicação de Frontend para obter os dados fictícios
-                        de
-                        pessoas
-                        fictícias geradas com o
-                        <a class="underline text-gray-300" href="https://faker.readthedocs.io/en/master/"
-                            target="_blank">Faker</a> utilizado neste meu projeto de Backend.
-                    </span>
-                </details>
+                <div class="bg-gray-600 p-2 mt-8 rounded-lg drop-shadow-lg">
+                    <details class="text-lg align-left text-gray-300">
+                        <summary class="cursor-pointer">Clique e veja como fazer sua própria
+                            aplicação
+                            acessar.
+                        </summary>
+                        <span class="text-gray-300">
+                            Para você ter acesso aos dados desta API, será necessário se cadastrar para obter um token
+                            de
+                            acesso que é <span class="text-gray-900">válido por 24hs.</span><br />
+                            Você poderá usar aplicações de teste de API como por exemplo o
+                            <span class="text-gray-900"><u><a href="https://www.postman.com/" target="_blank">
+                                        Postman</a></u></span>.
+                            <br />Você também poderá usar a sua própria aplicação de Frontend para obter os dados
+                            fictícios
+                            de
+                            pessoas
+                            fictícias geradas com o
+                            <a class="underline text-gray-300" href="https://faker.readthedocs.io/en/master/"
+                                target="_blank">Faker</a> utilizado neste meu projeto de Backend.
+                        </span>
+                    </details>
+                </div>
 
                 <hr class="my-5 border-gray-400">
 
@@ -65,7 +70,7 @@
                     {% if not request.user.is_authenticated %}
 
                     <a href="{% url 'accounts:create' %}" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white 
-                    shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 
+                    drop-shadow-lg hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 
                     focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Cadastre-se</a>
 
                     {% else %}
@@ -80,10 +85,10 @@
             </div>
 
             <div class="flex flex-row items-center mt-10 gap-2">
-                <p class="font-semibold text-xl text-white">Clique para ler a documentação</p>
+                <p class="font-semibold text-xl text-white drop-shadow-md">Clique para ler a documentação</p>
                 <a href="/api/v1/docs" target="_blank">
                     <i
-                        class="fa-solid fa-book bg-slate-300 p-1 rounded shadow-lg text-3xl text-blue-800 hover:text-blue-600"></i>
+                        class="fa-solid fa-book bg-slate-300 p-1 rounded drop-shadow-lg text-3xl text-blue-800 hover:text-blue-600"></i>
                 </a>
             </div>
             <div class="flex flex-col text-left mt-10">

@@ -40,7 +40,7 @@ NINJA_PAGINATION_PER_PAGE = 20
 
 # Verificar a necessidade do uso no frontend após implementar o JWT
 # https://github.com/adamchainz/django-cors-headers#configuration
-CORS_ALLOW_HEADERS = ("authorization")
+CORS_ALLOW_ALL_ORIGINS = True
 
 NINJA_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
